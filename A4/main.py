@@ -10,7 +10,6 @@ app = FastAPI()
 @app.get("/")
 async def root():
     return {"message": "Hello World"}
-<<<<<<< HEAD:main.py
 
 
 @app.get("/items/{item_id}")
@@ -26,5 +25,3 @@ class Item(BaseModel):
 @app.post("/items")
 async def create_item(item: Item):
     return Item
-=======
->>>>>>> 57dd48772ca10abbdd2fda26e8074c46a2bf9313:A4/main.py
