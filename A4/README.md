@@ -2,7 +2,7 @@
 
 This is a new ReadME.md from Assignment four(4).
 
-Created your own local database of the SqlZoo data using the data files located at the following address: https://cs.msutexas.edu/~griffin/data/SqlZoo/
+Created own local database of the SqlZoo data using the data files located at the following address: https://cs.msutexas.edu/~griffin/data/SqlZoo/
 
 The following tables were create:
 
