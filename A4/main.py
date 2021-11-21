@@ -132,29 +132,35 @@ join_dict = {
 app = FastAPI()
 
 @app.get("/")
-async def root():
-    # get_routes = ['basics', 'world', 'nobel', 'within', 'aggregate', 'joins', 'all']
-    # put_route = ['world']
-    # post_route = ['teacher']
-    # return {'GetRoutes': get_routes, 'PostRoute': post_route, 'PutRoute': put_route}
+async def root(request: Request):
+    return {
+        "Listing of all routes": request.url_for("routes"),
+        "URL for 'world'": request.url_for("world"),
+        "URL for ''world' with number 1-13": request.url_for("get_world_item_by_id", **{"world_id":1}),
+        "URL for ''nobel'": request.url_for("nobel"),
+        "URL for ''nobel' with number 1-14": request.url_for("get_nobel_item_by_id", **{"nobel_id":1}),
+        "URL for ''select' with number 1-10": request.url_for("get_select_by_id", **{"select_id":1}),
+        "URL for ''count' with number 1-8": request.url_for("get_count_by_id", **{"count_id":1}),
+        "URL for ''join' with number 1-13": request.url_for("get_join_by_id", **{"join_id":1}),
+    }
 
-# def get_all_urls():
-    url_list = [{"path": route.path, "name": route.name} for route in app.routes]
-    return url_list
-
-@app.get("/routes/", response_class=HTMLResponse)
-async def all_routes():
-    sample= """
-        '<a href= /basics>basics</a>'
-        <a href= /basics/1>basics individual</a><br>
+# @app.get("/routes/", response_class=HTMLResponse)
+# async def all_routes():
+#     sample= """
+#         '<a href= /basics>basics</a>'
+#         <a href= /basics/1>basics individual</a><br>
         
-    """
-    return HTMLResponse(content=sample, status_code=200)
+#     """
+#     return HTMLResponse(content=sample, status_code=200)
 
 
-@app.get("/items/{item_id}")
-async def read_item(item_id: int):
-    return {"item_id": item_id}
+@app.get("/routes/", name="routes")
+async def route_names():
+    get_routes = ['basics', 'world', 'nobel', 'within', 'count', 'joins', 'all']
+    put_route = ['world']
+    post_route = ['teacher']
+    return {'GetRoutes': get_routes, 'PostRoute': post_route, 'PutRoute': put_route}
+    
 
 
 @app.get("/basic/{basic_id}")
@@ -182,7 +188,7 @@ async def get_world_item():
 
 #Use the GET method to return a json response with information from the worlds table
 @app.get("/world/{world_id}")
-async def get_item(world_id: int ):
+async def get_world_item_by_id(world_id: int ):
     question = world_dict[world_id]['question']
     query = world_dict[world_id]['sql']
     result = cnx.query(query)
@@ -196,7 +202,7 @@ async def get_item(world_id: int ):
 
 
 #Defualt path decorator for the nobel route return everything from the nobel table
-@app.get("/nobel/")
+@app.get("/nobel/", name="nobel")
 async def get_item():
     sql = "SELECT * FROM nobel;"
     result = cnx.query(sql)
@@ -205,7 +211,7 @@ async def get_item():
 
 #Use the GET method to return a json response with information from the nobel table
 @app.get("/nobel/{nobel_id}")
-async def get_item(nobel_id: int):
+async def get_nobel_item_by_id(nobel_id: int):
     question = nobel_dict[nobel_id]['question']
     query = nobel_dict[nobel_id]['sql']
     result = cnx.query(query)
@@ -221,7 +227,7 @@ async def get_item(nobel_id: int):
 
 #Use the GET method to return a json response with information from the select table
 @app.get("/select/{select_id}")
-async def get_basic(select_id:int):
+async def get_select_by_id(select_id:int):
     question = select_dict[select_id]['question']
     query = select_dict[select_id]['sql']
     result = cnx.query(query)
@@ -236,7 +242,7 @@ async def get_basic(select_id:int):
 
 
 @app.get("/count/{count_id}")
-async def get_basic(count_id:int):
+async def get_count_by_id(count_id:int):
     question = count_dict[count_id]['question']
     query = count_dict[count_id]['sql']
     result = cnx.query(query)
@@ -251,7 +257,7 @@ async def get_basic(count_id:int):
 
 
 @app.get("/join/{join_id}")
-async def get_join(join_id:int):
+async def get_join_by_id(join_id:int):
     question = join_dict[join_id]['question']
     query = join_dict[join_id]['sql']
     result = cnx.query(query)
@@ -317,7 +323,7 @@ async def update_world(world_item: world_class):
     if world_item.flag != None: 
         sql += f"`flag`=`{world_item.flag}`, "
 
-    #sql += f"WHERE `id`=`{world_item.id}`"
+   
     print(sql)
     res = cnx.query(sql)
     return world_class
