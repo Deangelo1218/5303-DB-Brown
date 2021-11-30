@@ -4,12 +4,8 @@ import random
 import json
 from typing import Optional,List
 from fastapi import FastAPI, HTTPException, Request
-# from turfpy.transformation import circle
-# from turfpy.measurement import points_within_polygon
-from fastapi.responses import RedirectResponse,HTMLResponse
-import shutil 
+from fastapi.responses import RedirectResponse,HTMLResponse 
 from bson.objectid import ObjectId
-# from geojson import Feature, Point
 from geojson import Feature, Point
 from pydantic import BaseModel,Field
 from pymongo.message import query
