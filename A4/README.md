@@ -29,3 +29,15 @@ The following tables were create:
 3)  Create PUT route with FastApi for:
     * World
 
+Files
+#	File	Description	Status
+1	main.py	Main Python file to help connect to my database	☑️
+2	main2.py	Python file to help connect to my database	☑️
+3	mysqlCnx.py	The mysql connection file	☑️
+
+References
+#	File	Description	Status
+1	https://realpython.com/python-mysql	python-mysql	☑️
+2	https://realpython.com/fastapi-python-web-apis	fastapi-python	☑️
+3	https://realpython.com/api-integration-in-python/	api-integration-in-python	☑️
+4	https://realpython.com/python-encodings-guide/	python-encodings-guide	☑️
