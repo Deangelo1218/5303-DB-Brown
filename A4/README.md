@@ -30,4 +30,13 @@ The following tables were create:
     * World
 
 
+### Files
+
+|   #   | File            | Description                                                      |
+| :---: | --------------- | -----------------------------------------------------------------|
+|   1   | main.py         | Hosts the api routes for the sqlzoo data.                        |
+|   2   | mysqlCnx.py     | Connects to phpMyAdmin to query data from zqlzoo table           |
+|   3   | connector.py    | Connects to DB by entering Name and pass and creates a table     |
+
+
 
