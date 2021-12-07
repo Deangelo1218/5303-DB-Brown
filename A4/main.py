@@ -295,9 +295,9 @@ async def post_item(teacher_item: teacher_class):
 
 # PUT route for worlds
 
-@app.put("/world/{world_id}")
+@app.put("/world/")
 async def update_world(world_item: world_class):
-    sql = "UPDATE `world` SET WHERE"
+    sql = "UPDATE `world` SET "
     
     if world_item.name != None:
         sql += f"`name`=`{world_item.name}`, "
@@ -321,15 +321,18 @@ async def update_world(world_item: world_class):
         sql += f"`tld`=`{world_item.tld}`, "
 
     if world_item.flag != None: 
-        sql += f"`flag`=`{world_item.flag}`, "
+        sql += f"`flag`=`{world_item.flag}` "
+
+    sql+= "WHERE `name`=`Afghanistan"
 
    
     print(sql)
     res = cnx.query(sql)
-    return world_class
+    return res
+    #return world_class
 
 if __name__ == "__main__":
-  uvicorn.run(app, host="0.0.0.0", port=8001, log_level="info")
+  uvicorn.run(app, host="167.99.3.85", port=8001, log_level="info")
 
 
    
