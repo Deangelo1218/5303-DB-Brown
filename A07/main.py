@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from routes.schedules_routes import student_api_route
 from fastapi.middleware.cors import CORSMiddleware
+import uvicorn
 
 
 app = FastAPI()
@@ -14,3 +15,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+if __name__ == "__main__":
+  uvicorn.run(app, host="167.99.3.85", port=8004, log_level="info")

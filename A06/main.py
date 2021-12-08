@@ -142,5 +142,7 @@ async def by_zipcode(Zips:list):
         response_list.append(mymodel(**z))
     return response_list
 
+# if __name__ == "__main__":
+#   uvicorn.run(app, host="0.0.0.0", port=8001, log_level="info")
 if __name__ == "__main__":
-  uvicorn.run(app, host="0.0.0.0", port=8003, log_level="info")
+  uvicorn.run(app, host="167.99.3.85", port=8003, log_level="info")

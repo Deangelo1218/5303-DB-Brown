@@ -157,11 +157,11 @@ async def update_course(crn: str, update_course: Course):
 
 #Get test routes
 
-@student_api_route.get("/")
-async def get_data():
-    sample = todos_serializer(collection_test.find())
+# @student_api_route.get("/")
+# async def get_data():
+#     sample = todos_serializer(collection_test.find())
 
-    return {"status": "ok", "result": sample} 
+#     return {"status": "ok", "result": sample} 
 
 # @student_api_route.get("/{id}")
 # async def get_single_todo(id: str):
@@ -171,20 +171,20 @@ async def get_data():
 
 #Post test routes
 
-@student_api_route.post("/api/todo/")
-async def post_todo(todo: Todo):
-    _id = collection_test.insert_one(dict(todo))
-    sample = todos_serializer(collection_test.find({"_id": _id.inserted_id}))
+# @student_api_route.post("/api/todo/")
+# async def post_todo(todo: Todo):
+#     _id = collection_test.insert_one(dict(todo))
+#     sample = todos_serializer(collection_test.find({"_id": _id.inserted_id}))
 
-    return {"status": "ok", "result": sample}
+#     return {"status": "ok", "result": sample}
 
 
-@student_api_route.delete("/api/todo/{name}")
-async def delete_todo(name):
-    sample_query = collection_test.delete_one({"name": name})
-    if sample_query:
-        return "Successfully Deleted todo"
-    raise HTTPException(404, f"There is not TODO item with this name {name}")
+# @student_api_route.delete("/api/todo/{name}")
+# async def delete_todo(name):
+#     sample_query = collection_test.delete_one({"name": name})
+#     if sample_query:
+#         return "Successfully Deleted todo"
+#     raise HTTPException(404, f"There is not TOdo item with this name {name}")
 
 
 
