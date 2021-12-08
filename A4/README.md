@@ -2,6 +2,9 @@
 
 This is a new ReadME.md from Assignment four(4).
 
+#### Server info
+> - Api will run on port 8001 on this server **<http://167.99.3.85/:8001>**
+
 Created own local database of the SqlZoo data using the data files located at the following address: https://cs.msutexas.edu/~griffin/data/SqlZoo/
 
 The following tables were create:
