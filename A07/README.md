@@ -103,11 +103,11 @@
 
 ### Files
 
-|   #   | File                   | Description  | Status                  |
-| :---: | ---------------------- | ------------ | ----------------------- |
-|   1   | [main.py](main.py)     | fastapi code | :ballot_box_with_check: |
-|   2   | [schedules](schedules) | loading data | :ballot_box_with_check: |
-|   2   | [schedules](schedules) | loading data | :ballot_box_with_check: |
+|   #   | File                            | Description  | Status                  |
+| :---: | ---------------------- ---------| ------------ | ----------------------- |
+|   1   | [main.py](main.py)              | fastapi code | :ballot_box_with_check: |
+|   2   | [schedules_route.py](schedules) | Fastapiroute | :ballot_box_with_check: |
+
 
 ### References
 
