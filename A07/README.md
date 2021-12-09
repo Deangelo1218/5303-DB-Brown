@@ -2,6 +2,10 @@
 
 ### Deangelo Brown
 
+#### Server info
+> - Api will run on port 8004 on this server **<http://167.99.3.85/:8004>**
+> - Front-End will run on port 3000 on this server **<http://167.99.3.85/:3000>**
+
 #### Description
 >
 > - This project is a FARM stack development.
@@ -107,6 +111,6 @@
 
 ### References
 
-|   #   | File                                     | Description   | Status                  |
-| :---: | ---------------------------------------- | ------------- | ----------------------- |
-|   1   | [https://vuejs.org/](https://vuejs.org/) | Frontend Help | :ballot_box_with_check: |
+|   #   | File                                     | Description   | Status                                                  |
+| :---: | ---------------------------------------- | ------------- | ------------------------------------------------------- |
+|   1   | [https://react-bootstrap.github.io/](https://react-bootstrap.github.io/) | Frontend Help | :ballot_box_with_check: |
